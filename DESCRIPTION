@@ -1,0 +1,34 @@
+Type: Package
+Package: curequantile
+Title: Quantile Regression for Censored Time-to-Event Data with a Cure Fraction
+Version: 0.1.0
+Authors@R: c(
+    person("Kellie J.", "Archer", , "archer.43@osu.edu", 
+    role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0003-1555-5781")),
+    person("Bo", "Han", , "bohanstat@ynu.edu.cn", role = "aut"),
+    person("Ingrid", "Van Keilegom", , "ingrid.vankeilegom@kuleuven.be", 
+    role = "aut", comment = c(ORCID = "0000-0001-8827-7642"))
+  )
+Description: This package can be used to fit a mixture cure model where
+    the latency portion of the model is fit using quantile regression, as
+    described by Han, Van Keilegom, Wang (2026) JASA.
+License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5)
+Imports: 
+    ggplot2,
+    maxLik,
+    np,
+    parallel,
+    quantreg,
+    survival
+Config/roxygen2/version: 8.1.1
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

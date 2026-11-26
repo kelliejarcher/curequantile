@@ -1,0 +1,89 @@
+---
+title: "curequantile: An R Package for Quantile Cure Regression Models"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{curequantile: An R Package for Quantile Cure Regression Models}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `curequantile` package can be used to fit quantile regression model for 
+censored time-to-event data with a cure fraction.
+
+To illustrate the functionality of the `curequantile` package, we first load the 
+necessary libraries and the `breast_data` dataset. The data consist of 462 women 
+from county code 175 (Union of Iowa, Morgan of Kentucky, and Laurens of Georgia) 
+diagnosed with localized or regional breast cancer between 2004 and 2017, 
+extracted from the Surveillance, Epidemiology, and End Results (SEER) database.
+
+```{r setup}
+library(curequantile)
+library(survival)
+library(maxLik)
+data("breast_data")
+head(breast_data)
+```
+
+A cure quantile regression model can be fit using the `curequantile` function.
+
+```{r example}
+fit_breast <- curequantile(Surv(log(Time), Delta) ~ Age + Size,
+  data = breast_data, subset = 1:200)
+```
+
+The `coef()` function extracts the parameter estimates at a specific quantile 
+`tau`. 
+
+```{r coef}
+coefficients <- coef(fit_breast, tau = 0.50)
+names(coefficients)
+coefficients$gamma_est
+coefficients$beta_est
+```
+
+Here, `gamma_est` contains the incidence parameter estimates, while `beta_est` 
+contains the latency parameter estimates at the specified quantile, `tau`. 
+Finally, `eta_est` gives the conditional probabilities of being susceptible, and 
+therefore has a length equal to the number of rows in the input data frame.
+
+Alternatively, `print()` prints the coefficients at the user-specified quantile
+`tau` to the console.
+
+```{r print}
+print(fit_breast, tau = 0.50)
+```
+
+The `summary()` function returns the parameter estimates, bootstrap standard 
+errors, $Z$-test statistics, $p$-values, and bootstrap confidence intervals for 
+both the incidence covariates and the latency covariates at the specified 
+quantile, `tau`. For computational speed, this vignette uses `b = 5` bootstrap 
+resamples, whereas the function defaults to `b = 200`.
+
+```{r summary}
+summary <- summary(fit_breast, tau = 0.50, b = 5)
+```
+
+The `plot()` function displays the quantile parameter estimates for latency and 
+their corresponding confidence intervals for each covariate across the 
+user-specified range of `tau`. For illustration, only b = 10 bootstrap 
+resamples are used here.
+
+```{r plot}
+plot(fit_breast, tau = seq(0.25, 0.75, by = 0.25), b = 10, seed = 2)
+```
+
+Additional S3 methods available for `curequantile` objects include:
+
+- `dim()`: Returns the number of observations along with the number of incidence and latency covariates.
+- `formula()`: Extracts the model formula.
+- `logLik()`: Returns the log-likelihood of the fitted model.
+- `nobs()`: Returns the number of observations used to fit the model.
+- `predict()`: Generates predictions from the fitted model.
+
