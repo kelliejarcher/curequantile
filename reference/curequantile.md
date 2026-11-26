@@ -115,6 +115,21 @@ A list with the following components:
 
   data after effective dimension reduction.
 
+## References
+
+Han, Bo, Van Keilegom, Ingrid, Wang, Xiaoguang (2026). Quantile
+regression for censored data with a cure fraction. Journal of the
+American Statistical Association, in press. DOI
+10.1080/01621459.2026.2723402.
+
+Henningsen, Arne and Toomet, Ott (2011). maxLik: A package for maximum
+likelihood estimation in R. Computational Statistics 26(3), 443-458. DOI
+10.1007/s00180-010-0217-1.
+
+Wu, T., Sun, W., Yuan, S., Chen, C.-H., and Li, K.-C. (2008). A method
+for analyzing censored survival phenotype with gene expression data. BMC
+Bioinformatics, 9, 417. DOI 10.1186/1471-2105-9-417.
+
 ## Examples
 
 ``` r
