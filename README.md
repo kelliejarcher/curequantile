@@ -15,7 +15,7 @@ for censored time-to-event data with a cure fraction.
 You can install the development version of curequantile by issuing:
 
 ``` r
-install.packages("curequantile")
+remotes::install_github("kelliejarcher/curequantile")
 ```
 
 ## Example
