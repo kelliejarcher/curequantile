@@ -8,7 +8,7 @@
   object,
   b = 200,
   probs = c(0.025, 0.975),
-  tau = 0.25,
+  tau = 0.5,
   large = 10000,
   seed = NULL,
   ...
@@ -39,6 +39,8 @@ for incidence covariates.}
 \item{beta_hat}{a matrix that includes the parameter estimates, bootstrap
 standard error estimates, Z-test, p-value, and bootstrap confidence interval
 for latency covariates at the user-supplied quantile tau.}
+\item{tau}{user-specified quantile.}
+\item{b}{number of bootstrap resamples used in estimating standard error.}
 }
 \description{
 This function returns the parameter estimates, bootstrap

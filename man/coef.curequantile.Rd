@@ -4,7 +4,7 @@
 \alias{coef.curequantile}
 \title{Coefficient estimates from a fitted \code{curequantile} object}
 \usage{
-\method{coef}{curequantile}(object, tau = 0.25, large = 10000, ...)
+\method{coef}{curequantile}(object, tau = 0.5, large = 10000, ...)
 }
 \arguments{
 \item{object}{an object of class \code{curequantile}.}

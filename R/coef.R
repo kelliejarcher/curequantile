@@ -22,7 +22,7 @@
 #' coef_est <- coef(fit_breast, tau = 0.50)
 #' coef_est$gamma_est
 #' coef_est$beta_est
-coef.curequantile <- function(object, tau = 0.25, large = 10000, ...) {
+coef.curequantile <- function(object, tau = 0.50, large = 10000, ...) {
   if (!(inherits(object, "curequantile"))) {
     stop("Error: class of object must be curequantile")
   }

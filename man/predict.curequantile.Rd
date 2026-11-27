@@ -4,7 +4,7 @@
 \alias{predict.curequantile}
 \title{Predictions from a fitted cure quantile regression model}
 \usage{
-\method{predict}{curequantile}(object, newdata = NULL, tau = 0.25, back_transform = TRUE, ...)
+\method{predict}{curequantile}(object, newdata = NULL, tau = 0.5, back_transform = TRUE, ...)
 }
 \arguments{
 \item{object}{an object of class \code{curequantile}.}

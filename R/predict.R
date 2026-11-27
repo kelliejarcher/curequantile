@@ -23,7 +23,7 @@
 #' phat <- predict(fit_breast, tau = 0.50)
 #' hist(phat$p_cured, xlab = "Cure Probability",
 #'   main = paste("Estimate at ", phat$tau))
-predict.curequantile <- function(object, newdata = NULL, tau = 0.25,
+predict.curequantile <- function(object, newdata = NULL, tau = 0.50,
                                  back_transform = TRUE, ...) {
   if (!(inherits(object, "curequantile"))) {
     stop("Error: class of object must be curequantile")

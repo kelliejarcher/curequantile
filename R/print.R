@@ -6,6 +6,8 @@
 #'
 #' @param x an object of class \code{curequantile}.
 #' @param tau quantile at which latency coefficients should be estimated.
+#' @param digits minimal number of significant digits, see
+#' \code{\link{print.default}}.
 #' @param ... other arguments.
 #'
 #' @returns invisibly returns a matrix with rows corresponding to the
@@ -21,10 +23,12 @@
 #' fit_breast <- curequantile(Surv(log(Time), Delta) ~ Age + Size,
 #'   data = breast_data, subset = 1:200)
 #' print(fit_breast, tau = 0.25)
-print.curequantile <- function(x, tau = 0.50, ...) {
+#' print(fit_breast, tau = 0.25, digits = 2)
+print.curequantile <- function(x, tau = 0.50,
+                          digits = max(3L, getOption("digits") - 3L),...) {
   coefficients <- coef(x, tau = tau)
   return <- rbind(coefficients$gamma_est, coefficients$beta_est)
   dimnames(return)[[1]] <- c("gamma", "beta")
-  print(return)
+  print.default(format(return, digits = digits), print.gap = 2L, quote = FALSE, ...)
   invisible(return)
 }

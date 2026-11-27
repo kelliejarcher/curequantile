@@ -10,9 +10,9 @@ Authors@R: c(
     person("Ingrid", "Van Keilegom", , "ingrid.vankeilegom@kuleuven.be", 
     role = "aut", comment = c(ORCID = "0000-0001-8827-7642"))
   )
-Description: This package can be used to fit a mixture cure model where
-    the latency portion of the model is fit using quantile regression, as
-    described by Han, Van Keilegom, Wang (2026) JASA.
+Description: Fits a mixture cure model using censored quantile regression as
+    described by Han, Van Keilegom, Wang (2026) Journal of the American
+    Statistical Association.
 License: MIT + file LICENSE
 Depends: 
     R (>= 3.5)

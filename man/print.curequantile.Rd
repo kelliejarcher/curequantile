@@ -4,12 +4,15 @@
 \alias{print.curequantile}
 \title{Print a fitted cure quantile regression object}
 \usage{
-\method{print}{curequantile}(x, tau = 0.5, ...)
+\method{print}{curequantile}(x, tau = 0.5, digits = max(3L, getOption("digits") - 3L), ...)
 }
 \arguments{
 \item{x}{an object of class \code{curequantile}.}
 
 \item{tau}{quantile at which latency coefficients should be estimated.}
+
+\item{digits}{minimal number of significant digits, see
+\code{\link{print.default}}.}
 
 \item{...}{other arguments.}
 }
@@ -28,5 +31,6 @@ library(survival)
 fit_breast <- curequantile(Surv(log(Time), Delta) ~ Age + Size,
   data = breast_data, subset = 1:200)
 print(fit_breast, tau = 0.25)
+print(fit_breast, tau = 0.25, digits = 2)
 }
 \keyword{methods}
