@@ -115,9 +115,9 @@ the input data frame.</p>
 user-specified quantile <code>tau</code> to the console.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">fit_breast</span>, tau <span class="op">=</span> <span class="fl">0.50</span><span class="op">)</span></span>
-<span><span class="co">#&gt;       (Intercept)        Age        Size</span></span>
-<span><span class="co">#&gt; gamma   -4.414748 0.03760906  0.03203235</span></span>
-<span><span class="co">#&gt; beta     4.190577 0.00955579 -0.02360217</span></span></code></pre></div>
+<span><span class="co">#&gt;        (Intercept)  Age        Size     </span></span>
+<span><span class="co">#&gt; gamma  -4.414748     0.037609   0.032032</span></span>
+<span><span class="co">#&gt; beta    4.190577     0.009556  -0.023602</span></span></code></pre></div>
 <p>The <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> function returns the parameter estimates,
 bootstrap standard errors,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>-test
@@ -129,19 +129,8 @@ computational speed, this vignette uses <code>b = 5</code> bootstrap
 resamples, whereas the function defaults to <code>b = 200</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit_breast</span>, tau <span class="op">=</span> <span class="fl">0.50</span>, b <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Incidence estimates from fitted model: </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;               gamma_est   gamma_se      Z     Pvalue         2.5%       97.5%</span></span>
-<span><span class="co">#&gt; (Intercept) -4.41474767 2.41457415 -1.828 0.06754955 -7.964442414 -2.16644164</span></span>
-<span><span class="co">#&gt; Age          0.03760906 0.03686601  1.020 0.30772846  0.007922484  0.09375289</span></span>
-<span><span class="co">#&gt; Size         0.03203235 0.04887642  0.655 0.51246775  0.010083082  0.11843353</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Latency estimates at tau =  0.5 </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;                beta_est    beta_se      Z       Pvalue      2.5 %      97.5 %</span></span>
-<span><span class="co">#&gt; (Intercept)  4.19057671 0.82294997  5.092 3.543061e-07  3.5914288  5.53479206</span></span>
-<span><span class="co">#&gt; Age          0.00955579 0.01476857  0.647 5.176319e-01 -0.0169916  0.01989463</span></span>
-<span><span class="co">#&gt; Size        -0.02360217 0.00692134 -3.410 6.496288e-04 -0.0285612 -0.01270226</span></span></code></pre></div>
+<span><span class="co">#&gt; Warning in colnames(gamma_hat)[1:4] &lt;- c("gamma_est", "gamma_se", "Z",</span></span>
+<span><span class="co">#&gt; "Pvalue", : number of items to replace is not a multiple of replacement length</span></span></code></pre></div>
 <p>The <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> function displays the quantile parameter
 estimates for latency and their corresponding confidence intervals for
 each covariate across the user-specified range of <code>tau</code>. For

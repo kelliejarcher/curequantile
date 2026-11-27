@@ -6,7 +6,7 @@ Coefficient estimates from a fitted `curequantile` object
 
 ``` r
 # S3 method for class 'curequantile'
-coef(object, tau = 0.25, large = 10000, ...)
+coef(object, tau = 0.5, large = 10000, ...)
 ```
 
 ## Arguments

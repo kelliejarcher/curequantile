@@ -70,9 +70,9 @@ coefficients at the user-specified quantile `tau` to the console.
 ``` r
 
 print(fit_breast, tau = 0.50)
-#>       (Intercept)        Age        Size
-#> gamma   -4.414748 0.03760906  0.03203235
-#> beta     4.190577 0.00955579 -0.02360217
+#>        (Intercept)  Age        Size     
+#> gamma  -4.414748     0.037609   0.032032
+#> beta    4.190577     0.009556  -0.023602
 ```
 
 The [`summary()`](https://rdrr.io/r/base/summary.html) function returns
@@ -85,19 +85,8 @@ bootstrap resamples, whereas the function defaults to `b = 200`.
 ``` r
 
 summary <- summary(fit_breast, tau = 0.50, b = 5)
-#> Incidence estimates from fitted model: 
-#> 
-#>               gamma_est   gamma_se      Z     Pvalue         2.5%       97.5%
-#> (Intercept) -4.41474767 2.41457415 -1.828 0.06754955 -7.964442414 -2.16644164
-#> Age          0.03760906 0.03686601  1.020 0.30772846  0.007922484  0.09375289
-#> Size         0.03203235 0.04887642  0.655 0.51246775  0.010083082  0.11843353
-#> 
-#> Latency estimates at tau =  0.5 
-#> 
-#>                beta_est    beta_se      Z       Pvalue      2.5 %      97.5 %
-#> (Intercept)  4.19057671 0.82294997  5.092 3.543061e-07  3.5914288  5.53479206
-#> Age          0.00955579 0.01476857  0.647 5.176319e-01 -0.0169916  0.01989463
-#> Size        -0.02360217 0.00692134 -3.410 6.496288e-04 -0.0285612 -0.01270226
+#> Warning in colnames(gamma_hat)[1:4] <- c("gamma_est", "gamma_se", "Z",
+#> "Pvalue", : number of items to replace is not a multiple of replacement length
 ```
 
 The [`plot()`](https://rdrr.io/r/graphics/plot.default.html) function

@@ -53,7 +53,7 @@ specified quantile, <code>tau</code>.</p>
 <span>  <span class="va">object</span>,</span>
 <span>  b <span class="op">=</span> <span class="fl">200</span>,</span>
 <span>  probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span>,</span>
-<span>  tau <span class="op">=</span> <span class="fl">0.25</span>,</span>
+<span>  tau <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>  large <span class="op">=</span> <span class="fl">10000</span>,</span>
 <span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -107,6 +107,12 @@ for incidence covariates.</p></dd>
 standard error estimates, Z-test, p-value, and bootstrap confidence interval
 for latency covariates at the user-supplied quantile tau.</p></dd>
 
+<dt>tau</dt>
+<dd><p>user-specified quantile.</p></dd>
+
+<dt>b</dt>
+<dd><p>number of bootstrap resamples used in estimating standard error.</p></dd>
+
 </dl></div>
 
     <div class="section level2">
@@ -115,17 +121,7 @@ for latency covariates at the user-supplied quantile tau.</p></dd>
 <span class="r-in"><span><span class="va">fit_breast</span> <span class="op">&lt;-</span> <span class="fu"><a href="curequantile.html">curequantile</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">Time</span><span class="op">)</span>, <span class="va">Delta</span><span class="op">)</span> <span class="op">~</span> <span class="va">Size</span>,</span></span>
 <span class="r-in"><span>    data <span class="op">=</span> <span class="va">breast_data</span>, subset <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">200</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit_breast</span>, tau <span class="op">=</span> <span class="fl">0.50</span>, b <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Incidence estimates from fitted model: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               gamma_est   gamma_se      Z       Pvalue        2.5%      97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) -2.11415818 0.53224388 -3.972 7.127172e-05 -3.56907728 -1.9349425</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Size         0.02958308 0.03798412  0.779 4.359797e-01  0.02382188  0.1344256</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Latency estimates at tau =  0.5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                beta_est    beta_se      Z       Pvalue       2.5 %      97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  4.32016437 0.45172277  9.564 1.132914e-21  3.97280336 4.996466975</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Size        -0.01765176 0.01610613 -1.096 2.730788e-01 -0.04272943 0.003114929</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>number of items to replace is not a multiple of replacement length</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -6,7 +6,7 @@ Predictions from a fitted cure quantile regression model
 
 ``` r
 # S3 method for class 'curequantile'
-predict(object, newdata = NULL, tau = 0.25, back_transform = TRUE, ...)
+predict(object, newdata = NULL, tau = 0.5, back_transform = TRUE, ...)
 ```
 
 ## Arguments

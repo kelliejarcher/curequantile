@@ -45,6 +45,11 @@
 - [`print(`*`<curequantile>`*`)`](https://kelliejarcher.github.io/curequantile/reference/print.curequantile.md)
   : Print a fitted cure quantile regression object
 
+- [`print(`*`<summary.curequantile>`*`)`](https://kelliejarcher.github.io/curequantile/reference/print.summary.curequantile.md)
+  :
+
+  Print a summary of a fitted `curequantile` object
+
 - [`summary(`*`<curequantile>`*`)`](https://kelliejarcher.github.io/curequantile/reference/summary.curequantile.md)
   :
 
